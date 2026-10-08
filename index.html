@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Telepathix | AI Agent SaaS</title>
     <meta
       name="description"
-      content="Telepathix 是由 AI PhD 创立的个人 LLC，专注将 LLM / Agents 能力封装为面向个人用户的 SaaS 服务。"
+      content="Telepathix is an AI PhD-founded LLC focused on turning advanced LLM and Agent capabilities into practical SaaS products for individual users."
     />
     <style>
       :root {
@@ -46,6 +46,14 @@
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
       }
 
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
       h1 {
         margin: 0;
         font-size: clamp(2rem, 4vw, 3rem);
@@ -68,6 +76,29 @@
         font-weight: 600;
       }
 
+      .language-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.5rem;
+      }
+
+      .language-switcher button {
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 0.35rem 0.75rem;
+        cursor: pointer;
+        font-size: 0.85rem;
+      }
+
+      .language-switcher button.active,
+      .language-switcher button:hover {
+        background: rgba(109, 168, 255, 0.3);
+        border-color: var(--accent);
+      }
+
       ul {
         padding-left: 1.2rem;
         color: var(--muted);
@@ -88,26 +119,163 @@
   <body>
     <main>
       <section class="card">
-        <span class="tag">Telepathix · AI Agent SaaS</span>
-        <h1>让 AI 能力，成为每个人都能直接使用的服务</h1>
-        <p>
-          Telepathix 是由 AI PhD 创立的个人 LLC 公司，当前正处于项目调研与产品打磨阶段。
-          我们的目标是把 LLM / Agents 的复杂能力进行工程化封装，提供给个人客户可直接使用的
-          SaaS 服务。
+        <div class="header">
+          <div>
+            <span class="tag" data-i18n="tag">Telepathix · AI Agent SaaS</span>
+            <h1 data-i18n="headline">Bring AI power to everyone as a ready-to-use service</h1>
+          </div>
+          <div class="language-switcher" aria-label="Language Switcher">
+            <button type="button" data-lang="en" class="active">English</button>
+            <button type="button" data-lang="zh">中文</button>
+            <button type="button" data-lang="es">Español</button>
+            <button type="button" data-lang="fr">Français</button>
+            <button type="button" data-lang="ja">日本語</button>
+          </div>
+        </div>
+
+        <p data-i18n="intro1">
+          Telepathix is an AI PhD-founded LLC currently in market research and product refinement.
+          Our mission is to engineer and package advanced LLM and Agent capabilities into practical
+          SaaS services that individual customers can use directly.
         </p>
-        <p>首批方向包括（但不限于）：</p>
+        <p data-i18n="intro2">Our first focus areas include (but are not limited to):</p>
         <ul>
-          <li>AI 驱动的 PPT 自动生成（AI-based PPT Auto Generation）</li>
-          <li>可视化内容创作自动化工作流</li>
-          <li>个人与小团队的生产力 Agent 服务</li>
+          <li data-i18n="item1">AI-powered PPT auto-generation</li>
+          <li data-i18n="item2">Visual content automation workflows</li>
+          <li data-i18n="item3">Productivity agent services for individuals and small teams</li>
         </ul>
-        <p>
-          后续我们还将探索短剧、游戏、漫画等领域的 AI 生成产品，持续扩展内容创作与交互体验的边界。
+        <p data-i18n="outro">
+          We are also exploring AI-generated products for short drama, games, comics, and more,
+          continuously expanding the boundaries of content creation and interactive experiences.
         </p>
         <footer>
-          官方域名：<a href="https://telepathix.me">telepathix.me</a>
+          <span data-i18n="domainLabel">Official domain:</span>
+          <a href="https://telepathix.me">telepathix.me</a>
         </footer>
       </section>
     </main>
+
+    <script>
+      const translations = {
+        en: {
+          lang: "en",
+          title: "Telepathix | AI Agent SaaS",
+          description:
+            "Telepathix is an AI PhD-founded LLC focused on turning advanced LLM and Agent capabilities into practical SaaS products for individual users.",
+          tag: "Telepathix · AI Agent SaaS",
+          headline: "Bring AI power to everyone as a ready-to-use service",
+          intro1:
+            "Telepathix is an AI PhD-founded LLC currently in market research and product refinement. Our mission is to engineer and package advanced LLM and Agent capabilities into practical SaaS services that individual customers can use directly.",
+          intro2: "Our first focus areas include (but are not limited to):",
+          item1: "AI-powered PPT auto-generation",
+          item2: "Visual content automation workflows",
+          item3: "Productivity agent services for individuals and small teams",
+          outro:
+            "We are also exploring AI-generated products for short drama, games, comics, and more, continuously expanding the boundaries of content creation and interactive experiences.",
+          domainLabel: "Official domain:"
+        },
+        zh: {
+          lang: "zh-CN",
+          title: "Telepathix | AI Agent SaaS",
+          description:
+            "Telepathix 是由 AI PhD 创立的 LLC，专注将 LLM 与 Agent 能力封装为个人用户可直接使用的 SaaS 服务。",
+          tag: "Telepathix · AI Agent SaaS",
+          headline: "让 AI 能力成为每个人都能直接使用的服务",
+          intro1:
+            "Telepathix 是由 AI PhD 创立的 LLC 公司，当前正处于市场调研与产品打磨阶段。我们的目标是把 LLM 与 Agent 的复杂能力进行工程化封装，提供给个人客户可直接使用的 SaaS 服务。",
+          intro2: "首批方向包括（但不限于）：",
+          item1: "AI 驱动的 PPT 自动生成",
+          item2: "可视化内容创作自动化工作流",
+          item3: "面向个人与小团队的生产力 Agent 服务",
+          outro:
+            "我们还将探索短剧、游戏、漫画等领域的 AI 生成产品，持续扩展内容创作与交互体验的边界。",
+          domainLabel: "官方域名："
+        },
+        es: {
+          lang: "es",
+          title: "Telepathix | SaaS de Agentes de IA",
+          description:
+            "Telepathix es una LLC fundada por un PhD en IA y centrada en convertir capacidades avanzadas de LLM y agentes en productos SaaS prácticos para usuarios individuales.",
+          tag: "Telepathix · SaaS de Agentes de IA",
+          headline: "Lleva el poder de la IA a todos como un servicio listo para usar",
+          intro1:
+            "Telepathix es una LLC fundada por un PhD en IA, actualmente enfocada en investigación de mercado y mejora de producto. Nuestra misión es empaquetar capacidades avanzadas de LLM y agentes en servicios SaaS prácticos para usuarios individuales.",
+          intro2: "Nuestras primeras áreas de enfoque incluyen (sin limitarse a):",
+          item1: "Generación automática de presentaciones con IA",
+          item2: "Flujos de automatización para creación de contenido visual",
+          item3: "Servicios de agentes de productividad para personas y equipos pequeños",
+          outro:
+            "También exploramos productos generados por IA para drama corto, juegos, cómics y más, ampliando los límites de la creación de contenido y la experiencia interactiva.",
+          domainLabel: "Dominio oficial:"
+        },
+        fr: {
+          lang: "fr",
+          title: "Telepathix | SaaS d'agents IA",
+          description:
+            "Telepathix est une LLC fondée par un doctorant en IA, dédiée à transformer les capacités avancées des LLM et des agents en services SaaS pratiques pour les utilisateurs individuels.",
+          tag: "Telepathix · SaaS d'agents IA",
+          headline: "Rendre la puissance de l'IA accessible à tous via un service prêt à l'emploi",
+          intro1:
+            "Telepathix est une LLC fondée par un doctorant en IA, actuellement en phase d'étude de marché et d'optimisation produit. Notre mission est d'industrialiser les capacités avancées des LLM et des agents pour proposer des services SaaS directement utilisables par les particuliers.",
+          intro2: "Nos premiers axes incluent (sans s'y limiter) :",
+          item1: "Génération automatique de présentations par IA",
+          item2: "Workflows d'automatisation pour la création de contenu visuel",
+          item3: "Services d'agents de productivité pour particuliers et petites équipes",
+          outro:
+            "Nous explorons également des produits générés par IA pour les mini-séries, les jeux, les mangas et plus encore, afin d'élargir les frontières de la création de contenu et des expériences interactives.",
+          domainLabel: "Domaine officiel :"
+        },
+        ja: {
+          lang: "ja",
+          title: "Telepathix | AIエージェントSaaS",
+          description:
+            "TelepathixはAI分野のPhDが設立したLLCで、先進的なLLMとエージェント機能を個人向けの実用的なSaaSへと変換することに注力しています。",
+          tag: "Telepathix · AIエージェントSaaS",
+          headline: "AIの力を誰でも使えるサービスとして届ける",
+          intro1:
+            "TelepathixはAI分野のPhDが設立したLLCで、現在は市場調査とプロダクトの磨き込みを進めています。私たちの使命は、先進的なLLMとエージェント機能を実用的なSaaSとして設計・提供し、個人ユーザーがすぐに使える形にすることです。",
+          intro2: "初期の重点領域（例）は次のとおりです：",
+          item1: "AIによるプレゼン資料の自動生成",
+          item2: "ビジュアルコンテンツ制作の自動化ワークフロー",
+          item3: "個人および小規模チーム向けの生産性エージェントサービス",
+          outro:
+            "今後はショートドラマ、ゲーム、漫画などの領域でもAI生成プロダクトを探求し、コンテンツ制作とインタラクティブ体験の可能性を広げていきます。",
+          domainLabel: "公式ドメイン："
+        }
+      };
+
+      const fields = [
+        "tag",
+        "headline",
+        "intro1",
+        "intro2",
+        "item1",
+        "item2",
+        "item3",
+        "outro",
+        "domainLabel"
+      ];
+
+      function setLanguage(locale) {
+        const text = translations[locale] || translations.en;
+        document.documentElement.lang = text.lang;
+        document.title = text.title;
+        const desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute("content", text.description);
+
+        fields.forEach((key) => {
+          const node = document.querySelector(`[data-i18n="${key}"]`);
+          if (node) node.textContent = text[key];
+        });
+
+        document.querySelectorAll(".language-switcher button").forEach((button) => {
+          button.classList.toggle("active", button.dataset.lang === locale);
+        });
+      }
+
+      document.querySelectorAll(".language-switcher button").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+    </script>
   </body>
 </html>
