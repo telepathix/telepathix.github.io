@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Telepathix | AI Agent SaaS</title>
+    <title>Telepathix | One-stop AI Creation Workspace</title>
     <meta
       name="description"
-      content="Telepathix 是由 AI PhD 创立的个人 LLC，专注将 LLM / Agents 能力封装为面向个人用户的 SaaS 服务。"
+      content="Telepathix is a one-stop AI creation workspace for documents, comics, novels, short dramas, games, and more."
     />
     <style>
       :root {
@@ -46,6 +46,14 @@
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
       }
 
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
       h1 {
         margin: 0;
         font-size: clamp(2rem, 4vw, 3rem);
@@ -68,6 +76,29 @@
         font-weight: 600;
       }
 
+      .language-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.5rem;
+      }
+
+      .language-switcher button {
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 0.35rem 0.75rem;
+        cursor: pointer;
+        font-size: 0.85rem;
+      }
+
+      .language-switcher button.active,
+      .language-switcher button:hover {
+        background: rgba(109, 168, 255, 0.3);
+        border-color: var(--accent);
+      }
+
       ul {
         padding-left: 1.2rem;
         color: var(--muted);
@@ -88,26 +119,162 @@
   <body>
     <main>
       <section class="card">
-        <span class="tag">Telepathix · AI Agent SaaS</span>
-        <h1>让 AI 能力，成为每个人都能直接使用的服务</h1>
-        <p>
-          Telepathix 是由 AI PhD 创立的个人 LLC 公司，当前正处于项目调研与产品打磨阶段。
-          我们的目标是把 LLM / Agents 的复杂能力进行工程化封装，提供给个人客户可直接使用的
-          SaaS 服务。
+        <div class="header">
+          <div>
+            <span class="tag" data-i18n="tag">Telepathix · AI Creation Workspace</span>
+            <h1 data-i18n="headline">One-stop AI creation workspace for every format</h1>
+          </div>
+          <div class="language-switcher" aria-label="Language Switcher">
+            <button type="button" data-lang="en" class="active">English</button>
+            <button type="button" data-lang="zh">中文</button>
+            <button type="button" data-lang="es">Español</button>
+            <button type="button" data-lang="fr">Français</button>
+            <button type="button" data-lang="ja">日本語</button>
+          </div>
+        </div>
+
+        <p data-i18n="intro1">
+          Telepathix is an AI PhD-founded LLC currently in market research and product refinement.
+          Our mission is to turn advanced LLM and Agent capabilities into a unified creation
+          workspace that individual creators can use directly.
         </p>
-        <p>首批方向包括（但不限于）：</p>
+        <p data-i18n="intro2">Create end-to-end in one workspace:</p>
         <ul>
-          <li>AI 驱动的 PPT 自动生成（AI-based PPT Auto Generation）</li>
-          <li>可视化内容创作自动化工作流</li>
-          <li>个人与小团队的生产力 Agent 服务</li>
+          <li data-i18n="item1">Documents and knowledge content</li>
+          <li data-i18n="item2">Comics, novels, and short dramas</li>
+          <li data-i18n="item3">Game worlds, assets, and interactive stories</li>
         </ul>
-        <p>
-          后续我们还将探索短剧、游戏、漫画等领域的 AI 生成产品，持续扩展内容创作与交互体验的边界。
+        <p data-i18n="outro">
+          From ideation to production, Telepathix unifies AI workflows for creators and small teams.
         </p>
         <footer>
-          官方域名：<a href="https://telepathix.me">telepathix.me</a>
+          <span data-i18n="domainLabel">Official domain:</span>
+          <a href="https://telepathix.me">telepathix.me</a>
         </footer>
       </section>
     </main>
+
+    <script>
+      const translations = {
+        en: {
+          lang: "en",
+          title: "Telepathix | One-stop AI Creation Workspace",
+          description:
+            "Telepathix is a one-stop AI creation workspace for documents, comics, novels, short dramas, games, and more.",
+          tag: "Telepathix · AI Creation Workspace",
+          headline: "One-stop AI creation workspace for every format",
+          intro1:
+            "Telepathix is an AI PhD-founded LLC currently in market research and product refinement. Our mission is to turn advanced LLM and Agent capabilities into a unified creation workspace that individual creators can use directly.",
+          intro2: "Create end-to-end in one workspace:",
+          item1: "Documents and knowledge content",
+          item2: "Comics, novels, and short dramas",
+          item3: "Game worlds, assets, and interactive stories",
+          outro:
+            "From ideation to production, Telepathix unifies AI workflows for creators and small teams.",
+          domainLabel: "Official domain:"
+        },
+        zh: {
+          lang: "zh-CN",
+          title: "Telepathix | 一站式 AI 创作工作台",
+          description:
+            "Telepathix 是面向文档、漫画、小说、短剧、游戏等场景的一站式 AI 生成创作工作台。",
+          tag: "Telepathix · AI 创作工作台",
+          headline: "面向多内容形态的一站式 AI 创作工作台",
+          intro1:
+            "Telepathix 是由 AI PhD 创立的 LLC 公司，当前正处于市场调研与产品打磨阶段。我们的目标是把 LLM 与 Agent 的复杂能力工程化为统一创作工作台，让个人创作者可直接使用。",
+          intro2: "在一个工作台中完成端到端创作：",
+          item1: "文档与知识内容创作",
+          item2: "漫画、小说与短剧创作",
+          item3: "游戏世界观、素材与互动叙事创作",
+          outro:
+            "从灵感到产出，Telepathix 为个人与小团队统一 AI 创作流程。",
+          domainLabel: "官方域名："
+        },
+        es: {
+          lang: "es",
+          title: "Telepathix | Espacio integral de creación con IA",
+          description:
+            "Telepathix es un espacio integral de creación con IA para documentos, cómics, novelas, dramas cortos, juegos y más.",
+          tag: "Telepathix · Espacio de creación con IA",
+          headline: "Un espacio integral de creación con IA para todos los formatos",
+          intro1:
+            "Telepathix es una LLC fundada por un PhD en IA, actualmente enfocada en investigación de mercado y mejora de producto. Nuestra misión es convertir capacidades avanzadas de LLM y agentes en un espacio de creación unificado que los creadores individuales puedan usar directamente.",
+          intro2: "Crea de principio a fin en un solo espacio:",
+          item1: "Documentos y contenido de conocimiento",
+          item2: "Cómics, novelas y dramas cortos",
+          item3: "Mundos de juego, recursos e historias interactivas",
+          outro:
+            "De la idea a la producción, Telepathix unifica los flujos de trabajo de IA para creadores y equipos pequeños.",
+          domainLabel: "Dominio oficial:"
+        },
+        fr: {
+          lang: "fr",
+          title: "Telepathix | Espace de création IA tout-en-un",
+          description:
+            "Telepathix est un espace de création IA tout-en-un pour les documents, les mangas, les romans, les mini-séries, les jeux et plus encore.",
+          tag: "Telepathix · Espace de création IA",
+          headline: "Un espace de création IA tout-en-un pour tous les formats",
+          intro1:
+            "Telepathix est une LLC fondée par un doctorant en IA, actuellement en phase d'étude de marché et d'optimisation produit. Notre mission est de transformer les capacités avancées des LLM et des agents en un espace de création unifié, directement exploitable par les créateurs individuels.",
+          intro2: "Créez de bout en bout dans un seul espace :",
+          item1: "Documents et contenus de connaissance",
+          item2: "Mangas, romans et mini-séries",
+          item3: "Univers de jeu, assets et récits interactifs",
+          outro:
+            "De l'idée à la production, Telepathix unifie les workflows IA pour les créateurs et les petites équipes.",
+          domainLabel: "Domaine officiel :"
+        },
+        ja: {
+          lang: "ja",
+          title: "Telepathix | ワンストップAI創作ワークスペース",
+          description:
+            "Telepathixは、ドキュメント、漫画、小説、短編ドラマ、ゲームなどを一体で制作できるワンストップAI創作ワークスペースです。",
+          tag: "Telepathix · AI創作ワークスペース",
+          headline: "あらゆる形式に対応するワンストップAI創作ワークスペース",
+          intro1:
+            "TelepathixはAI分野のPhDが設立したLLCで、現在は市場調査とプロダクトの磨き込みを進めています。私たちの使命は、先進的なLLMとエージェント機能を統合された創作ワークスペースへと変換し、個人クリエイターが直接使える形で提供することです。",
+          intro2: "1つのワークスペースで、企画から制作まで完結：",
+          item1: "ドキュメントとナレッジコンテンツ制作",
+          item2: "漫画・小説・短編ドラマ制作",
+          item3: "ゲーム世界観・アセット・インタラクティブストーリー制作",
+          outro:
+            "発想から成果物まで、Telepathixはクリエイターと小規模チームのAI制作ワークフローを統合します。",
+          domainLabel: "公式ドメイン："
+        }
+      };
+
+      const fields = [
+        "tag",
+        "headline",
+        "intro1",
+        "intro2",
+        "item1",
+        "item2",
+        "item3",
+        "outro",
+        "domainLabel"
+      ];
+
+      function setLanguage(locale) {
+        const text = translations[locale] || translations.en;
+        document.documentElement.lang = text.lang;
+        document.title = text.title;
+        const desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute("content", text.description);
+
+        fields.forEach((key) => {
+          const node = document.querySelector(`[data-i18n="${key}"]`);
+          if (node) node.textContent = text[key];
+        });
+
+        document.querySelectorAll(".language-switcher button").forEach((button) => {
+          button.classList.toggle("active", button.dataset.lang === locale);
+        });
+      }
+
+      document.querySelectorAll(".language-switcher button").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+    </script>
   </body>
 </html>
